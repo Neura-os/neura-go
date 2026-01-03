@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-const DefaultEndpoint = "https://control.neura-os.com"
+const DefaultEndpoint = "https://app.neura-os.com"
 
 type Client struct {
 	Endpoint string

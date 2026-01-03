@@ -13,18 +13,38 @@ type Resource struct {
 }
 
 type DecisionRequest struct {
-	Intent   string                 `json:"intent"`
-	Actor    Actor                  `json:"actor"`
-	Resource Resource               `json:"resource"`
-	Context  map[string]interface{} `json:"context,omitempty"`
+	Intent        string                 `json:"intent"`
+	Actor         Actor                  `json:"actor"`
+	Resource      Resource               `json:"resource"`
+	Context       map[string]interface{} `json:"context,omitempty"`
+	CorrelationID string                 `json:"correlation_id,omitempty"`
 }
 
 type DecisionResponse struct {
 	ID        string                 `json:"id"`
 	Outcome   string                 `json:"outcome"`
-	Reason    string                 `json:"reason,omitempty"`
+	Class     string                 `json:"class,omitempty"`
+	Evidence  *DecisionEvidence      `json:"evidence,omitempty"`
+	Reason    string                 `json:"reason"`
+	Policies  []string               `json:"policies"`
 	Timestamp string                 `json:"timestamp"`
+	AuditRef  string                 `json:"audit_ref"`
 	Metadata  map[string]interface{} `json:"metadata,omitempty"`
+}
+
+type DecisionEvidence struct {
+	DEO struct {
+		DecisionID        string   `json:"decision_id"`
+		Timestamp         string   `json:"timestamp"`
+		Actor             string   `json:"actor"`
+		AllowedByPolicy   string   `json:"allowed_by_policy,omitempty"`
+		PolicyHash        string   `json:"policy_hash,omitempty"`
+		MemorySnapshotRef string   `json:"memory_snapshot_ref,omitempty"`
+		RiskScore         float64  `json:"risk_score"`
+		ToolPermissions   []string `json:"tool_permissions,omitempty"`
+		Confidence        float64  `json:"confidence"`
+		Override          bool     `json:"override"`
+	} `json:"deo"`
 }
 
 type ValidationResponse struct {

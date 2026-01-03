@@ -12,7 +12,7 @@ go get github.com/neura-os/neura-go
 
 **Option 1: Web Dashboard (Recommended)**
 
-1. Visit [app.neura-os.com](https://app.neura-os.com).
+1. Visit [api.neura-os.com](https://app.neura-os.com).
 2. Register for an account.
 3. Generate an API Key from the dashboard.
 
