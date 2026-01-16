@@ -10,15 +10,9 @@ go get github.com/neura-os/neura-go
 
 ## Getting an API Key
 
-**Option 1: Web Dashboard (Recommended)**
+Option 2: Programmatic Registration**
 
-1. Visit [app.neura-os.com](https://app.neura-os.com).
-2. Register for an account.
-3. Generate an API Key from the dashboard.
-
-**Option 2: Programmatic Registration**
-
-You can also obtain an API key by registering your service using the SDK:
+You can obtain an API key by registering your service using the SDK:
 
 ```go
 package main
